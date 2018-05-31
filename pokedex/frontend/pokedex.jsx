@@ -6,9 +6,10 @@ import { fetchAllPokemon } from './util/api_util';
 import { selectAllPokemon } from './reducers/selectors';
 
 import configureStore from './store/store';
+import Root from './root';
 
 document.addEventListener('DOMContentLoaded', () => {
-	const rootEl = document.getElementById('root');
+	const root = document.getElementById('root');
 	const store = configureStore();
 
 	window.receiveAllPokemon = receiveAllPokemon;
@@ -18,5 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	window.getState = store.getState;
 	window.dispatch = store.dispatch;
 
-	ReactDOM.render(<h1>Pokedex</h1>, rootEl);
+	ReactDOM.render(<Root store={store}/>, root);
 });
